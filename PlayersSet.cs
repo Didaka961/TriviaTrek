@@ -18,8 +18,8 @@ namespace TriviaTrek
         static StreamReader sr = new StreamReader("C:\\Users\\User\\source\\repos\\TriviaTrek\\Questions.txt");
         string[] question = sr.ReadLine().Split(',').Reverse().ToArray();
         
-        public PlayersSet() 
-        {//kkkk
+        public PlayersSet()
+        {
         }
         public void Setup() 
         {
