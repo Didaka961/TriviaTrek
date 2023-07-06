@@ -19,7 +19,7 @@ namespace TriviaTrek
         string[] question = sr.ReadLine().Split(',').Reverse().ToArray();
         
         public PlayersSet() 
-        {
+        {//kkkk
         }
         public void Setup() 
         {
