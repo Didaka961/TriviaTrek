@@ -12,35 +12,41 @@ namespace TriviaTrek
         int[] players;
         int spaces = 51;
         int currentPlayer = 0;
-        public PlayersSet()
-        {
-            Console.WriteLine("Mоля въведете число от 2 до 4.");
-            int playerAmount = int.Parse(Console.ReadLine());
+        public int PlayerAmount;
 
+        public PlayersSet(int PlayerAmount) 
+        { 
+            this.PlayerAmount = PlayerAmount;
+        }
+        public void Setup() 
+        { 
             while (true)
             {
-                if (playerAmount > 1 && playerAmount < 5)
+                if (PlayerAmount > 1 && PlayerAmount < 5)
                 {
-                    players = new int[playerAmount];
-                    for (int i = 1; i < playerAmount; i++)
+                    players = new int[PlayerAmount];
+                    for (int i = 1; i < PlayerAmount; i++)
                     {
                         players[i]++;
                     }
-                    playerLocation = new int[playerAmount];
+                    playerLocation = new int[PlayerAmount];
                     break;
                 }
-                else if (playerAmount < 2)
+                else if (PlayerAmount < 2)
                 {
                     Console.WriteLine("Твърде малко играчи моля въведете число от 2 до 4.");
-                    playerAmount = int.Parse(Console.ReadLine());
+                    PlayerAmount = int.Parse(Console.ReadLine());
                 }
                 else
                 {
                     Console.WriteLine("Твърде много играчи моля въведете число от 2 до 4.");
-                    playerAmount = int.Parse(Console.ReadLine());
+                    PlayerAmount = int.Parse(Console.ReadLine());
                 }
+           
             }
+            
         }
+        
 
     }
 }
