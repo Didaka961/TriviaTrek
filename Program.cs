@@ -19,7 +19,7 @@ namespace TriviaTrek
             
             try
             {
-                Console.WriteLine("===Здравей моля избери една от опциите:===\n1) Започни нова игра\n2) Изход");
+                Console.WriteLine("===Здравей моля избери една от опциите:===\n1) Започни нова игра");
                 int choice = int.Parse(Console.ReadLine());
 
                 switch (choice)
@@ -41,8 +41,6 @@ namespace TriviaTrek
                                 case 3: Environment.Exit(0); break;
                             }
                         }
-
-                    case 2: Environment.Exit(0); break;
                 }
             }
             catch

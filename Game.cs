@@ -17,7 +17,7 @@ namespace TriviaTrek
         public int spaces = 51;
         public int currentPlayer = 0;
         static ArrayList questions = new ArrayList();
-        public string FilePath = "..\\..\\Questions.txt";
+        public string FilePath = "E:\\TriviaTrek\\Questions.txt";
 
         public Game()
         {
@@ -75,7 +75,7 @@ namespace TriviaTrek
             {
                 Random rand = new Random();
                 int question = rand.Next(0);
-                Console.WriteLine(questions[question]);
+                Console.WriteLine($"{questions[question]}");
             }
         }
 
