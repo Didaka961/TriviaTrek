@@ -50,7 +50,6 @@ namespace TriviaTrek
                     Console.WriteLine("Твърде много играчи моля въведете число от 2 до 4.");
                     playerAmount = int.Parse(Console.ReadLine());
                 }   
-           
             }
             
         }
