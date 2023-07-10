@@ -17,6 +17,8 @@ namespace TriviaTrek
         public int spaces = 51;
         public int currentPlayer = 0;
         static ArrayList questions = new ArrayList();
+        public List<int> ask = new List<int>();
+        public int count = 1;
         public string FilePath = "E:\\TriviaTrek\\Questions.txt";
 
         public Game()
@@ -51,8 +53,8 @@ namespace TriviaTrek
                     playerAmount = int.Parse(Console.ReadLine());
                 }   
             }
-            
         }
+
         public void Move()
         {
             Random random = new Random();
@@ -73,14 +75,31 @@ namespace TriviaTrek
             if (roll<3)
             {
                 Random rand = new Random();
-                int question = rand.Next(0);
-                Console.WriteLine($"{questions[question]}");
+                int num = rand.Next(100);
+                int a;
+                if (num==25)
+                {
+                    a = 0;
+                }
+                else if (num>25&&num<51)
+                {
+                    a = 1;
+                }
+                else if (num>50 &&num<76)
+                {
+                    a = 2;
+                }
+                else 
+                { 
+                    a = 3;
+                }
+                Console.WriteLine(questions[ask[a]]);
             }
         }
 
         public void ReadQuestionsFromFile(string filePath)
         {
-            using (StreamReader sr = new StreamReader(filePath))
+            using (StreamReader sr = new StreamReader(filePath, Encoding.GetEncoding("utf-8")))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -98,7 +117,16 @@ namespace TriviaTrek
                         int crux = int.Parse(questionData[7]);
 
                         Questions question1 = new Questions(id, question, answer1, answer2, answer3, answer4, correctAnswer, crux);
-                        questions.Add(question1);
+                        questions.Add((int)question1.ID);
+                        questions.Add(question1.Question);
+                        questions.Add(question1.Answer1);
+                        questions.Add (question1.Answer2);
+                        questions.Add(question1.Answer3);
+                        questions.Add(question1.Answer4);
+                        questions.Add((int)correctAnswer);
+                        questions.Add((int)crux);
+                        ask.Add(count);
+                        count += 8;
                     }
                 }
             }
