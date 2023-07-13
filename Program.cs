@@ -13,13 +13,13 @@ namespace TriviaTrek
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
-            
+
             try
             {
-                Console.WriteLine("===Здравей моля избери една от опциите:===\n1) Започни нова игра");
+                Console.WriteLine("===Здравей моля пишете само числото опцичта която сте си избрали:===\n1) Започни нова игра");
                 int choice = int.Parse(Console.ReadLine());
 
                 switch (choice)
@@ -27,7 +27,7 @@ namespace TriviaTrek
                     case 1:
                         Game game = new Game();
                         game.Setup();
-                        while (true)
+                        while (game.win != game.spaces)
                         {
                             Console.WriteLine($"==={game.players[game.currentPlayer]} избери една от опциите:=== \n 1) Хвърли зарчето \n 2) Започни нова игра \n 3) Изход");
                             choice = int.Parse(Console.ReadLine());
@@ -41,6 +41,8 @@ namespace TriviaTrek
                                 case 3: Environment.Exit(0); break;
                             }
                         }
+                        Console.WriteLine(game.players[game.currentPlayer] + " спечели! Благодарим ви, че играхте Trivia Trek!");
+                        break;
                 }
             }
             catch
@@ -49,7 +51,7 @@ namespace TriviaTrek
                 string file = Assembly.GetExecutingAssembly().Location;
                 System.Diagnostics.Process.Start(file);
             }
-            
-        }    
+
+        }
     }
 }
